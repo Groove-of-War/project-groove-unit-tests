@@ -20,7 +20,7 @@ public class CombatTest {
     @Test()
     public void solveDamageAverage50() {
         Varargs args = lua
-                .get("execute")
+                .get("solveDamage")
                 .invoke(
                         new LuaValue[]{LuaValue.NIL, //This is the argument for self. Not needed in this case since it's not used
                                 LuaValue.valueOf(0.45), // Weapon Damage (Average - 5 damage)
