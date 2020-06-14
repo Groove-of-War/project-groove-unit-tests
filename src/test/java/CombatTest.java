@@ -1,5 +1,4 @@
 import org.luaj.vm2.Globals;
-import org.luaj.vm2.LuaClosure;
 import org.luaj.vm2.LuaValue;
 import org.luaj.vm2.Varargs;
 import org.luaj.vm2.lib.jse.JsePlatform;
@@ -9,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class CombatTest {
 
-    private static String file = "combat.lua";
+    private static String file = "solveDamage/combat.lua";
     private static Globals globals = JsePlatform.standardGlobals();
     private static LuaValue lua = globals.loadfile(file);
 
@@ -21,7 +20,7 @@ public class CombatTest {
     @Test()
     public void solveDamageAverage50() {
         Varargs args = lua
-                .get("solveDamage")
+                .get("execute")
                 .invoke(
                         new LuaValue[]{LuaValue.NIL, //This is the argument for self. Not needed in this case since it's not used
                                 LuaValue.valueOf(0.45), // Weapon Damage (Average - 5 damage)
